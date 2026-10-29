@@ -34,20 +34,12 @@ The project demonstrates defensive cloud security engineering, IAM risk analysis
 
 ## Architecture
 
-```text
-Sample IAM Policies / Trust Policies / Credential Reports
-                         |
-                         v
-               Python Security Auditors
-                         |
-                         v
-             Unified Security Findings
-                         |
-                         v
-                 Risk Grouping
-                         |
-                         v
-                 JSON Reporting
+```mermaid
+flowchart TD
+    A["Offline IAM Sample Data"] --> B["Security Auditors"]
+    B --> C["Unified Security Findings"]
+    C --> D["Risk Grouping"]
+    D --> E["JSON Security Report"]
 ```
 
 ## Technology Stack
@@ -61,7 +53,7 @@ Sample IAM Policies / Trust Policies / Credential Reports
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/aws-iam-security-hardening.git
+git clone https://github.com/Sidbalagopal10/aws-iam-security-hardening.git
 cd aws-iam-security-hardening
 
 python3 -m venv .venv
