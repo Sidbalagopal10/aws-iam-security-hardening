@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.env.*
+!.env.example
+.aws/
+credentials
+token.json
+reports/*.json
+!reports/example_report.json
+.DS_Store

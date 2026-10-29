@@ -1,0 +1,339 @@
+{
+  "project": "SentinelCore",
+  "assessment": "AWS IAM Security Assessment",
+  "mode": "OFFLINE",
+  "generated_at": "2026-10-28T00:00:00+00:00",
+  "assets_scanned": {
+    "iam_policies": 1,
+    "role_trust_policies": 1,
+    "iam_users": 3
+  },
+  "summary": {
+    "total_findings": 10,
+    "severity_counts": {
+      "CRITICAL": 1,
+      "HIGH": 7,
+      "MEDIUM": 2,
+      "LOW": 0
+    },
+    "total_grouped_risks": 5,
+    "grouped_severity_counts": {
+      "CRITICAL": 1,
+      "HIGH": 2,
+      "MEDIUM": 2,
+      "LOW": 0
+    }
+  },
+  "findings": [
+    {
+      "category": "IAM_POLICY",
+      "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+      "severity": "CRITICAL",
+      "issue": "Broad administrative permissions",
+      "action": "iam:*",
+      "matched_policy_action": "iam:*",
+      "resources": [
+        "*"
+      ],
+      "statement_index": 0,
+      "condition_present": false,
+      "effective_access_verified": false,
+      "remediation": "Replace broad administrative actions with narrowly scoped permissions."
+    },
+    {
+      "category": "IAM_POLICY",
+      "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+      "severity": "MEDIUM",
+      "issue": "Wildcard resource permissions",
+      "action": "s3:GetObject",
+      "matched_policy_action": "s3:GetObject",
+      "resources": [
+        "*"
+      ],
+      "statement_index": 0,
+      "condition_present": false,
+      "effective_access_verified": false,
+      "remediation": "Review whether wildcard resources are necessary and restrict scope where possible."
+    },
+    {
+      "category": "PRIVILEGE_ESCALATION",
+      "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+      "severity": "HIGH",
+      "issue": "Potential IAM privilege escalation",
+      "action": "iam:AttachUserPolicy",
+      "matched_policy_action": "iam:*",
+      "resources": [
+        "*"
+      ],
+      "statement_index": 0,
+      "condition_present": false,
+      "effective_access_verified": false,
+      "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+    },
+    {
+      "category": "PRIVILEGE_ESCALATION",
+      "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+      "severity": "HIGH",
+      "issue": "Potential IAM privilege escalation",
+      "action": "iam:PutUserPolicy",
+      "matched_policy_action": "iam:*",
+      "resources": [
+        "*"
+      ],
+      "statement_index": 0,
+      "condition_present": false,
+      "effective_access_verified": false,
+      "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+    },
+    {
+      "category": "PRIVILEGE_ESCALATION",
+      "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+      "severity": "HIGH",
+      "issue": "Potential IAM privilege escalation",
+      "action": "iam:CreatePolicyVersion",
+      "matched_policy_action": "iam:*",
+      "resources": [
+        "*"
+      ],
+      "statement_index": 0,
+      "condition_present": false,
+      "effective_access_verified": false,
+      "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+    },
+    {
+      "category": "PRIVILEGE_ESCALATION",
+      "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+      "severity": "HIGH",
+      "issue": "Potential IAM privilege escalation",
+      "action": "iam:SetDefaultPolicyVersion",
+      "matched_policy_action": "iam:*",
+      "resources": [
+        "*"
+      ],
+      "statement_index": 0,
+      "condition_present": false,
+      "effective_access_verified": false,
+      "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+    },
+    {
+      "category": "PRIVILEGE_ESCALATION",
+      "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+      "severity": "HIGH",
+      "issue": "Potential IAM privilege escalation",
+      "action": "iam:PassRole",
+      "matched_policy_action": "iam:*",
+      "resources": [
+        "*"
+      ],
+      "statement_index": 0,
+      "condition_present": false,
+      "effective_access_verified": false,
+      "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+    },
+    {
+      "category": "TRUST_POLICY",
+      "role_name": "SentinelCore-Sample-Vulnerable-Role",
+      "severity": "HIGH",
+      "issue": "Broad role trust principal",
+      "statement_index": 0,
+      "principal": "*",
+      "remediation": "Restrict trusted principals to approved identities and review role-assumption conditions."
+    },
+    {
+      "severity": "HIGH",
+      "category": "CREDENTIAL_SECURITY",
+      "user": "developer-test",
+      "issue": "Console password enabled without MFA",
+      "remediation": "Enable MFA for this IAM user."
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "CREDENTIAL_SECURITY",
+      "user": "automation-test",
+      "issue": "Active access key exceeds rotation threshold",
+      "access_key_slot": 1,
+      "age_days": 666,
+      "remediation": "Review key usage and replace long-lived credentials with temporary credentials where possible."
+    }
+  ],
+  "grouped_risks": [
+    {
+      "severity": "CRITICAL",
+      "categories": [
+        "IAM_POLICY",
+        "PRIVILEGE_ESCALATION"
+      ],
+      "findings": [
+        {
+          "category": "IAM_POLICY",
+          "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+          "severity": "CRITICAL",
+          "issue": "Broad administrative permissions",
+          "action": "iam:*",
+          "matched_policy_action": "iam:*",
+          "resources": [
+            "*"
+          ],
+          "statement_index": 0,
+          "condition_present": false,
+          "effective_access_verified": false,
+          "remediation": "Replace broad administrative actions with narrowly scoped permissions."
+        },
+        {
+          "category": "PRIVILEGE_ESCALATION",
+          "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+          "severity": "HIGH",
+          "issue": "Potential IAM privilege escalation",
+          "action": "iam:AttachUserPolicy",
+          "matched_policy_action": "iam:*",
+          "resources": [
+            "*"
+          ],
+          "statement_index": 0,
+          "condition_present": false,
+          "effective_access_verified": false,
+          "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+        },
+        {
+          "category": "PRIVILEGE_ESCALATION",
+          "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+          "severity": "HIGH",
+          "issue": "Potential IAM privilege escalation",
+          "action": "iam:PutUserPolicy",
+          "matched_policy_action": "iam:*",
+          "resources": [
+            "*"
+          ],
+          "statement_index": 0,
+          "condition_present": false,
+          "effective_access_verified": false,
+          "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+        },
+        {
+          "category": "PRIVILEGE_ESCALATION",
+          "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+          "severity": "HIGH",
+          "issue": "Potential IAM privilege escalation",
+          "action": "iam:CreatePolicyVersion",
+          "matched_policy_action": "iam:*",
+          "resources": [
+            "*"
+          ],
+          "statement_index": 0,
+          "condition_present": false,
+          "effective_access_verified": false,
+          "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+        },
+        {
+          "category": "PRIVILEGE_ESCALATION",
+          "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+          "severity": "HIGH",
+          "issue": "Potential IAM privilege escalation",
+          "action": "iam:SetDefaultPolicyVersion",
+          "matched_policy_action": "iam:*",
+          "resources": [
+            "*"
+          ],
+          "statement_index": 0,
+          "condition_present": false,
+          "effective_access_verified": false,
+          "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+        },
+        {
+          "category": "PRIVILEGE_ESCALATION",
+          "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+          "severity": "HIGH",
+          "issue": "Potential IAM privilege escalation",
+          "action": "iam:PassRole",
+          "matched_policy_action": "iam:*",
+          "resources": [
+            "*"
+          ],
+          "statement_index": 0,
+          "condition_present": false,
+          "effective_access_verified": false,
+          "remediation": "Review the action, target resources, trust relationships, and effective permissions."
+        }
+      ]
+    },
+    {
+      "severity": "MEDIUM",
+      "categories": [
+        "IAM_POLICY"
+      ],
+      "findings": [
+        {
+          "category": "IAM_POLICY",
+          "policy_name": "SentinelCore-Sample-Vulnerable-Policy",
+          "severity": "MEDIUM",
+          "issue": "Wildcard resource permissions",
+          "action": "s3:GetObject",
+          "matched_policy_action": "s3:GetObject",
+          "resources": [
+            "*"
+          ],
+          "statement_index": 0,
+          "condition_present": false,
+          "effective_access_verified": false,
+          "remediation": "Review whether wildcard resources are necessary and restrict scope where possible."
+        }
+      ]
+    },
+    {
+      "severity": "HIGH",
+      "categories": [
+        "TRUST_POLICY"
+      ],
+      "findings": [
+        {
+          "category": "TRUST_POLICY",
+          "role_name": "SentinelCore-Sample-Vulnerable-Role",
+          "severity": "HIGH",
+          "issue": "Broad role trust principal",
+          "statement_index": 0,
+          "principal": "*",
+          "remediation": "Restrict trusted principals to approved identities and review role-assumption conditions."
+        }
+      ]
+    },
+    {
+      "severity": "HIGH",
+      "categories": [
+        "CREDENTIAL_SECURITY"
+      ],
+      "findings": [
+        {
+          "severity": "HIGH",
+          "category": "CREDENTIAL_SECURITY",
+          "user": "developer-test",
+          "issue": "Console password enabled without MFA",
+          "remediation": "Enable MFA for this IAM user."
+        }
+      ]
+    },
+    {
+      "severity": "MEDIUM",
+      "categories": [
+        "CREDENTIAL_SECURITY"
+      ],
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "category": "CREDENTIAL_SECURITY",
+          "user": "automation-test",
+          "issue": "Active access key exceeds rotation threshold",
+          "access_key_slot": 1,
+          "age_days": 666,
+          "remediation": "Review key usage and replace long-lived credentials with temporary credentials where possible."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "All findings originate from simulated sample data.",
+    "Policy findings are heuristic, not effective-permission analysis.",
+    "Overlapping findings may describe the same underlying risk.",
+    "Trust conditions and organization-level controls are not fully evaluated."
+  ],
+  "data_source": "Synthetic offline test fixtures"
+}
